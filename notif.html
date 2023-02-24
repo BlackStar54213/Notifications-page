@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+    <link rel="stylesheet" href="notif.css">
+    <link rel="shortcut icon" href="assets/images/favicon-32x32.png" type="image/x-icon">
+</head>
+<body>
+    <div class="fire" style="height: 760px;"></div>
+        <div class="flame">
+            <p class="notif">Notifications</p>
+            <span id="notifications"></span>
+            <p class="btnread" id="mark_all">Mark all as read</p>
+            <section class="unread" id="mark">
+                <img src="assets/images/mark.webp" alt="an image of mark" style="height: 40px;"> <strong>Mark Webber</strong> reacted to your recent post <a href="">My first tournament today!</a>
+                <p class="time">1m ago.</p>
+            </section>
+
+            <section class="unread" id="mark">
+                <img src="assets/images/avatar-angela-gray.webp" alt="an image of Angela" style="height: 40px;"><strong>Angela Gray </strong>followed you
+                <p class="time">5m ago.</p>
+            </section>
+
+            <section class="unread" id="mark">
+                <img src="assets/images/avatar-jacob-thompson.webp" alt="an image of Jacob" style="height: 40px;"> <strong>Jacob Thompson</strong> has joined your group <a href="" style="color: hsl(219, 85%, 26%);">Chess Club</a>
+                <p class="time">1 day ago.</p>
+            </section>
+
+            <section class="mark" style="background-color: white;">
+                <img src="assets/images/avatar-rizky-hasanuddin.webp" alt="an image of rizky" style="height: 40px;"> <strong>Rizky Hasanuddin</strong> sent you a private message
+                <p class="time">5 days ago.</p>
+
+                <div class="message">
+                    <p>
+                        Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and I'm already having lots of fun and improving my game.
+                        
+                    </p>
+                </div>
+            </section>
+
+            <section class="mark" id="kim" style="background-color: white;">
+                <img src="assets/images/avatar-kimberly-smith.webp" alt="an image of Jacob" style="height: 40px;"> <strong>Kimberly Smith</strong>  commented on your picture  <img src="assets/images/image-chess.webp " alt="an image of rizky" id="upload" style="height: 40px; float: right; margin-right: 70px; cursor: pointer; ">
+               
+                <p class="time">1 week ago.</p>
+            </section>
+
+
+            <section class="mark" style="background-color: white;">
+                <img src="assets/images/avatar-nathan-peterson.webp" alt="an image of Jacob" style="height: 40px;"> <strong>Nathan Peterson</strong> reacted to your recent post <a href="">5 end-game strategies to increase your win rate</a>
+                <p class="time">2 weeks ago.</p>
+            </section>
+
+
+            <section class="mark" style="background-color: white;">
+                <img src="assets/images/avatar-anna-kim.webp" alt="an image of Jacob" style="height: 40px;"> <strong>Anna Kim</strong> left the group <a href="" style="color: hsl(219, 85%, 26%);">Chess Club</a>
+                <p class="time">2 weeks ago.</p>
+            </section>
+
+        </div>
+    </div> 
+</body>
+<script>
+    const unReadMessages = document.querySelectorAll(".unread");
+    const unread = document.getElementById("notifications");
+    const markAll = document.getElementById("mark_all");
+    unread.innerText = unReadMessages.length;
+
+    unReadMessages.forEach((message) => {
+        message.addEventListener("click", ()=>{
+            message.classList.remove("unread");
+            const newUnreadMessages = document.querySelectorAll(".unread");
+            unread.innerText= newUnreadMessages.length
+        })
+    });
+
+    markAll.addEventListener("click", () => {
+        unReadMessages.forEach(message => {
+            message.classList.remove("unread")
+        });
+        const newUnreadMessages = document.querySelectorAll(".unread");
+        unread.innerText = newUnreadMessages.length;
+    })
+
+
+</script>
+</html>
